@@ -1,0 +1,37 @@
+What you could do is the following:
+
+Setup a new Ubuntu droplet with enough resources
+SSH to the new droplet and run:
+
+sudo apt-get update
+
+Then if you like Gnome desktop, install the following:
+
+sudo apt-get install ubuntu-desktop
+
+After that install XRDP:
+
+sudo apt-get install xrdp
+
+Enable XRDP to start on boot:
+
+systemctl enable xrdp
+
+If you have a firewall make sure that the 3389 port is open:
+
+sudo ufw allow 3389/tcp
+sudo ufw status
+sudo ufw enable
+
+Add a new low privileged account:
+
+adduser username
+usermod -aG username admin
+usermod -aG username root
+
+For faster Remote Desktop:
+Change crypt_level to low in /etc/xrdp/xrdp.ini to improve performance
+
+sudo nano /etc/xrdp/xrdp.ini
+
+Change crypt_levle to none or low
