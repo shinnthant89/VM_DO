@@ -26,8 +26,8 @@ sudo ufw enable
 Add a new low privileged account:
 
 adduser username
-usermod -aG username admin
-usermod -aG username root
+usermod -aG admin username
+usermod -aG root username
 
 For faster Remote Desktop:
 Change crypt_level to low in /etc/xrdp/xrdp.ini to improve performance
